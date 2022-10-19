@@ -1,3 +1,6 @@
+## Release Date
+* 19.10.2022
+
 ## [4.1.0] - 19.10.2022
 BREAKING CHANGE: 
 - Updated to latest Flutter version. As the result RxRaisedButton was replaced with RxElevatedButton
