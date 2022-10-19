@@ -17,7 +17,7 @@ and [RxCommands](https://github.com/escamoteur/rx_command).
 Add to your `pubspec.yaml` dependencies to  `rx_widgets`
 
 ## Widgets Available
-- [RxRaisedButton](#rxraisedbutton)
+- [RxElevatedButton](#rxelevatedbutton)
 - [RxText](#rxtext)
 - [RxLoader](#rxloader)
 - [RxSpinner](#rxspinner)
@@ -27,33 +27,18 @@ Add to your `pubspec.yaml` dependencies to  `rx_widgets`
 - [ReactiveWidget](#reactivewidget)
 - [RxCommandHandlerMixin](#rxcommandhandlermixin)
 
-### RxRaisedButton
-Creates a `RaisedButton` that has an `rxCommand` instead of `onPressed`. It gets disabled if the command has canExecute:false or when isExecuting:true
+### RxElevatedButton
+Creates a `ElevatedButton` that has an `rxCommand` instead of `onPressed`. It gets disabled if the command has canExecute:false or when isExecuting:true
 
-An extended `RaisedButton` where the `onPressed` is replaced with `rxCommand` and it gets disabled if the `rxCommand` has the `canExecute` set to `false` or when it is executing.
+An extended `ElevatedButton` where the `onPressed` is replaced with `rxCommand` and it gets disabled if the `rxCommand` has the `canExecute` set to `false` or when it is executing.
 
 ```Dart
-RxRaisedButton({
+RxElevatedButton({
     Key key,
     // The RxCommand.
     this.rxCommand,
     this.child,
-    this.onHighlightChanged,
-    this.textTheme,
-    this.textColor,
-    this.disabledTextColor,
-    this.color,
-    this.disabledColor,
-    this.highlightColor,
-    this.splashColor,
-    this.colorBrightness,
-    this.elevation,
-    this.highlightElevation,
-    this.disabledElevation,
-    this.padding,
-    this.shape,
-    this.materialTapTargetSize,
-    this.animationDuration,
+    // ... The rest of optional parameters
   });
 ```
 
@@ -188,12 +173,12 @@ This is an example where it is used to enable/disable a Button
 ```Dart
 WidgetSelector(
       buildEvents: myStream,
-      onTrue: RaisedButton(
+      onTrue: ElevatedButton(
           child: Text("Update"),
           onPressed: () {
             // Action
           }),
-      onFalse: RaisedButton(
+      onFalse: ElevatedButton(
         child: Text("Please Wait"),
         onPressed: null,
       ),
@@ -357,7 +342,7 @@ class CommandWidget extends StatelessWidget with RxCommandHandlerMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           child: Text('Test Command'),
           onPressed: _command,
         ),

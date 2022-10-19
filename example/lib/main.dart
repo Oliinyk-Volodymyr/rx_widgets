@@ -28,8 +28,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           disabledColor: Colors.white12,
           primaryColor: Color(0xFF1C262A),
-          buttonColor: Color(0xFF1C262A),
-          accentColor: Color(0xFFA7D9D5),
           scaffoldBackgroundColor: Color.fromRGBO(38, 50, 56, 1.0),
         ),
         home: HomePage(),

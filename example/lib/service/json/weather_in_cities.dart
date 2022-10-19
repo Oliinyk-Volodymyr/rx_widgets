@@ -1,5 +1,3 @@
-// ignore_for_file: annotate_overrides
-
 import "package:json_annotation/json_annotation.dart";
 
 part "weather_in_cities.g.dart";
@@ -116,7 +114,7 @@ class Rain {
   Rain(this.threeH);
 
   @JsonKey(name: '3h')
-  final double threeH;
+  final double? threeH;
 
   factory Rain.fromJson(Map<String, dynamic> json) => _$RainFromJson(json);
 }

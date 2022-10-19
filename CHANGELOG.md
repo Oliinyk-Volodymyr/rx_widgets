@@ -1,3 +1,9 @@
+## [4.1.0] - 19.10.2022
+BREAKING CHANGE: 
+- Updated to latest Flutter version. As the result RxRaisedButton was replaced with RxElevatedButton
+- Minimum Dart version updated to 2.18.2
+
+
 ## [4.0.1] - 26.05.2021
 
 * fix for exception when running on web https://github.com/escamoteur/rx_widgets/issues/19

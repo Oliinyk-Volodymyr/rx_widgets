@@ -18,15 +18,23 @@ class WeatherService {
     final response = await client.get(uri);
     print(response.statusCode);
     if (response.statusCode == 200) {
-      return WeatherInCities.fromJson(
-              json.decode(response.body) as Map<String, dynamic>)
-          .cities
-          .where((weatherInCity) =>
-              filter == null ||
-              filter.isEmpty ||
-              weatherInCity.name.toUpperCase().startsWith(filter.toUpperCase()))
-          .map((weatherInCity) => WeatherEntry.from(weatherInCity))
-          .toList();
+      print('Response: ${response.body}');
+      try {
+        final jsonMap = json.decode(response.body) as Map<String, dynamic>;
+        final weather = WeatherInCities.fromJson(jsonMap);
+        return weather.cities
+            .where((weatherInCity) =>
+                filter == null ||
+                filter.isEmpty ||
+                weatherInCity.name
+                    .toUpperCase()
+                    .startsWith(filter.toUpperCase()))
+            .map((weatherInCity) => WeatherEntry.from(weatherInCity))
+            .toList();
+      } catch (e, stack) {
+        print('Error fetching: $e; stack: $stack');
+        throw Exception(response.body);
+      }
     } else {
       throw Exception(response.body);
     }
